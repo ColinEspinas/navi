@@ -1,0 +1,19 @@
+:root {
+
+  --darkest-color: #0D1B2A;
+  --dark-color: #1B263B;
+  --primary-color: #415A77;
+  --light-color: #778DA9;
+  --lightest-color: #E0E1DD;
+
+  --titlebar-bg-color: var(--dark-color);
+  --titlebar-text-color: var(--lightest-color);
+  --titlebar-border-bottom: 1px solid var(--darkest-color);
+
+  --titlebar-tab-active-bg-color: var(--primary-color);
+  --titlebar-tab-border-color: var(--darkest-color);
+
+  --window-bg-color: var(--dark-color);
+  --window-text-color: var(--lightest-color);
+  --window-border: none;
+}
