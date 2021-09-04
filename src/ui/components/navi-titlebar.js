@@ -1,5 +1,4 @@
 import define from '../../utils/define.js';
-
 import tabs from './navi-tabs.js';
 
 const style = () => /*css*/`
@@ -12,7 +11,7 @@ const style = () => /*css*/`
   border-bottom: var(--titlebar-border-bottom);
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   -webkit-user-select: none;
   -webkit-app-region: drag;
@@ -25,6 +24,7 @@ const style = () => /*css*/`
 
 .navi-window-titlebar > .action-buttons {
   display: flex;
+  height: 48px;
   margin-left: auto;
   -webkit-app-region: no-drag;
 }
@@ -52,6 +52,10 @@ const style = () => /*css*/`
   height: 18px;
   width: auto;
   color: var(--titlebar-text-color) !important;
+}
+
+#close-button:hover {
+  background-color: var(--error-color);
 }
 `;
 
@@ -96,15 +100,15 @@ export default define('navi-titlebar', class extends HTMLElement {
 
   __events() {
     this.shadowRoot.querySelector('#minimize-button').addEventListener('click', () => {
-      window.electron.action.minimize();
+      window.electron.actions.minimize();
     });
 
     this.shadowRoot.querySelector('#maximize-button').addEventListener('click', () => {
-      window.electron.action.maximize();
+      window.electron.actions.maximize();
     });
 
     this.shadowRoot.querySelector('#close-button').addEventListener('click', () => {
-      window.electron.action.close();
+      window.electron.actions.close();
     });
   }
 });
