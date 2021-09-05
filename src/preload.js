@@ -26,6 +26,9 @@ contextBridge.exposeInMainWorld('electron', {
     tabGoForward: async () => {
       return ipcRenderer.invoke('tabs:forward');
     },
+    reloadTab: async () => {
+      return ipcRenderer.invoke('tabs:reload');
+    }
   },
   getters: {
     tabs: async () => {

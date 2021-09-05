@@ -3,6 +3,7 @@ import define from '../../utils/define.js';
 
 const style = () => /*css*/`
   .navi-tab {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
@@ -12,6 +13,7 @@ const style = () => /*css*/`
     min-width: 200px;
     height: 100%;
     position: relative;
+    border: 1px solid transparent;
     border-radius: 5px;
     background-color: rgba(255, 255, 255, .05);
     overflow: hidden;
@@ -38,6 +40,7 @@ const style = () => /*css*/`
 
   .navi-tab.active {
     background-color: var(--titlebar-tab-active-bg-color);
+    border: 1px solid rgba(255, 255, 255, .1);
   }
 
   .close-button {

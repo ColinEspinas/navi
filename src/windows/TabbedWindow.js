@@ -91,13 +91,19 @@ module.exports = class TabbedWindow extends Window {
 
     ipcMain.handle('tabs:back', async (event) => {
       if (event.sender.id === this.webContents.id) {
-        this.tabs[this.activeTab].view.webContents.goBack();
+        this.tabs[this.activeTab]?.view.webContents.goBack();
       }
     });
 
     ipcMain.handle('tabs:forward', async (event) => {
       if (event.sender.id === this.webContents.id) {
-        this.tabs[this.activeTab].view.webContents.goForward();
+        this.tabs[this.activeTab]?.view.webContents.goForward();
+      }
+    });
+
+    ipcMain.handle('tabs:reload', async (event) => {
+      if (event.sender.id === this.webContents.id) {
+        this.tabs[this.activeTab]?.view.webContents.reload();
       }
     });
   }

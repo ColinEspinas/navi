@@ -56,6 +56,9 @@ const template = ({ data }) => /*html*/`
   <li class="navi-tab-action" id="next-tab-button">
   <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="176 152 224 104 176 56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><path d="M32,200a96,96,0,0,1,96-96h96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
   </li>
+  <li class="navi-tab-action" id="reload-tab-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="176.167 99.716 224.167 99.716 224.167 51.716" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><path d="M190.2254,190.2254a88,88,0,1,1,0-124.4508l33.94112,33.94113" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+  </li>
   <li class="navi-tab-last-item"></li>
   <li class="navi-tab-action" id="add-tab-button">
     <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="40" y1="128" x2="216" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
@@ -109,6 +112,10 @@ export default define('navi-tabs', class extends HTMLElement {
 
     this.shadowRoot.querySelector('#next-tab-button').addEventListener('click', async () => {
       await window.electron.actions.tabGoForward();
+    });
+
+    this.shadowRoot.querySelector('#reload-tab-button').addEventListener('click', async () => {
+      await window.electron.actions.reloadTab();
     });
 
     app.on('close-tab', (event) => {
