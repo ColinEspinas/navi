@@ -67,10 +67,10 @@ module.exports = class TabbedWindow extends Window {
         this.tabs[index].hide();
         this.tabs[index].view.webContents.destroy();
         this.tabs.splice(index, 1);
-        if (this.activeTab === index) {
-          this.setActiveTab(this.tabs.length - 1);
-        }
+        if (this.activeTab === index && index < this.tabs.length) this.setActiveTab(index + 1);
+        else if (this.activeTab === index) this.setActiveTab(this.tabs.length - 1);
         this.indexTabs();
+        if (index < this.activeTab) this.setActiveTab(this.activeTab - 1);
       }
     });
 
@@ -159,6 +159,17 @@ class Tab {
           url,
           response,
           status,
+          agent: this.view.webContents.getUserAgent(),
+        }
+      });
+    });
+    this.view.webContents.on('did-navigate-in-page', (event, url)=> {
+      this.window.webContents.send('tabs:update', {
+        type: 'in-page-navigation-done',
+        index: this.index,
+        data: {
+          title: this.view.webContents.getTitle(),
+          url,
           agent: this.view.webContents.getUserAgent(),
         }
       });

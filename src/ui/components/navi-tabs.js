@@ -88,7 +88,7 @@ export default define('navi-tabs', class extends HTMLElement {
     // Add a new tab
     this.shadowRoot.querySelector('#add-tab-button').addEventListener('click', async () => {
 
-      const newPageURL = 'https://www.youtube.com/watch?v=j8-H8GUMYMY&list=PLNdO3e3fKSGdvwCu9PXRpci264cBNEpex';
+      const newPageURL = '';
 
       const index = this.shadowRoot.querySelectorAll('navi-tab').length;
       const newTab = this.addTab({

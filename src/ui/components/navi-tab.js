@@ -46,7 +46,7 @@ const style = () => /*css*/`
     display: flex;
     background-color: transparent;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 1px solid rgba(255, 255, 255, .1);
     padding: 2px;
     opacity: 0;
     cursor: pointer;
@@ -157,8 +157,8 @@ export default define('navi-tab', class extends HTMLElement {
     window.electron.listeners.tabUpdate((event, { type, index, data }) => {
       if (index === this.index) {
         switch (type) {
-          case 'navigation-done': {
-            // Make things happen on nav
+          case 'in-page-navigation-done': {
+            this.title = data.title;
             break;
           }
           case 'title-update': {
