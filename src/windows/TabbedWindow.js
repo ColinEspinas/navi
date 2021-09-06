@@ -31,7 +31,20 @@ module.exports = class TabbedWindow extends Window {
 
     this.titleBarHeight = 49;
 
-    // this.addTab();
+    this.overlayView = new BrowserView({
+      webPreferences: {
+        preload: path.join(__dirname, '../preload.js'),
+      }
+    });
+    // const [width, height] = this.getContentSize();
+    // this.overlayView.setBounds({ x: 0, y: 0, width, height });
+
+    // this.addBrowserView(this.overlayView);
+    // this.setTopBrowserView(this.overlayView);
+    // this.overlayView.webContents.loadFile(path.join(__dirname, '../../static/overlay.html'));
+    // this.overlayView.webContents.openDevTools();
+
+    this.addTab();
   }
 
   __init(options) {
@@ -210,7 +223,8 @@ class Tab {
   }
 
   show() {
-    this.window.setBrowserView(this.view);
+    this.window.addBrowserView(this.view);
+    // this.window.setTopBrowserView(this.window.overlayView);
     this.view.webContents.focus();
   }
 

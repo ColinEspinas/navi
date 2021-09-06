@@ -1,5 +1,5 @@
-import app from '../../app.js';
-import define from '../../utils/define.js';
+import app from '../app.js';
+import define from '../utils/define.js';
 
 const style = () => /*css*/`
   .navi-tab {

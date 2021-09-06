@@ -1,5 +1,5 @@
-import define from '../../utils/define.js';
-import app from '../../app.js';
+import define from '../utils/define.js';
+import app from '../app.js';
 
 import tab from './navi-tab.js';
 
@@ -58,6 +58,9 @@ const template = ({ data }) => /*html*/`
   </li>
   <li class="navi-tab-action" id="reload-tab-button">
     <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><polyline points="176.167 99.716 224.167 99.716 224.167 51.716" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline><path d="M190.2254,190.2254a88,88,0,1,1,0-124.4508l33.94112,33.94113" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+  </li>
+  <li class="navi-tab-action" id="search-tab-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="#000000" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="116" cy="116" r="84" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><line x1="175.39356" y1="175.40039" x2="223.99414" y2="224.00098" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line></svg>
   </li>
   <li class="navi-tab-last-item"></li>
   <li class="navi-tab-action" id="add-tab-button">

@@ -1,4 +1,4 @@
-import define from '../../utils/define.js';
+import define from '../utils/define.js';
 import tabs from './navi-tabs.js';
 
 const style = () => /*css*/`

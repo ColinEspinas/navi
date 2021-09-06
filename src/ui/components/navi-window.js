@@ -1,4 +1,4 @@
-import define from '../../utils/define.js';
+import define from '../utils/define.js';
 import titlebar from './navi-titlebar.js';
 
 const style = () => /*css*/`
