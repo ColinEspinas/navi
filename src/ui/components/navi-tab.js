@@ -28,6 +28,13 @@ const style = () => /*css*/`
     word-break: break-all;
     overflow: hidden;
     width: 100%;
+    line-height: 2rem;
+  }
+
+  .navi-tab > .favicon.active {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
   }
 
   .navi-tab:hover {
@@ -187,8 +194,7 @@ export default define('navi-tab', class extends HTMLElement {
     this.dataset['favicon'] = value;
     const faviconElement = this.shadowRoot.querySelector('.favicon');
     faviconElement.src = value;
-    if (value !== '') faviconElement.style.marginRight = '5px';
-    else faviconElement.style.marginRight = '0';
+    faviconElement.classList.toggle('active', value !== '');
   }
   get favicon() { return this.dataset?.favicon; }
 

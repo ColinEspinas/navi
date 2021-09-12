@@ -211,6 +211,9 @@ class Tab {
         }
       });
     });
+    this.view.webContents.on('context-menu', (event, params) => {
+      console.log(params);
+    });
   }
 
   resize(width, height) {

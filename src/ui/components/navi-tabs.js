@@ -94,7 +94,7 @@ export default define('navi-tabs', class extends HTMLElement {
     // Add a new tab
     this.shadowRoot.querySelector('#add-tab-button').addEventListener('click', async () => {
 
-      const newPageURL = '';
+      const newPageURL = 'https://google.com';
 
       const index = this.shadowRoot.querySelectorAll('navi-tab').length;
       const newTab = this.addTab({
